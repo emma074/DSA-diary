@@ -1,0 +1,15 @@
+// Given n returns the nth row of pascals triangle
+class Solution {
+
+    ArrayList<Integer> nthRowOfPascalTriangle(int n) {
+        // code here
+        long value=1;
+        ArrayList <Integer> row =new ArrayList<>();
+        row.add((int)(value));
+        for(int k=1;k<n;k++){
+            value=value*(n-k)/k;
+            row.add((int)(value));
+        }
+        return row;
+    }
+}

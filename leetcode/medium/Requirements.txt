@@ -1,0 +1,10 @@
+# Requirements
+lightgbm
+matplotlib
+numpy
+optuna
+pandas
+scikit-learn
+seaborn
+tabulate
+xgboost

@@ -1,0 +1,16 @@
+class Solution {
+    static int majorityElement(int arr[]) {
+        // code here
+        int n=arr.length;
+        HashMap <Integer,Integer> freqmap= new HashMap<>();
+        for(int num:arr){
+            freqmap.put(num,freqmap.getOrDefault(num,0)+1);
+        }
+        for(int key:freqmap.keySet()){
+            if(freqmap.get(key)>n/2)
+            return key;
+            
+        }
+            return -1;
+    }
+}

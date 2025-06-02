@@ -1,0 +1,21 @@
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        int c_sum=0;
+        //cal sum of first k elements
+        for(int i=0;i<k;i++){
+            c_sum+=nums[i];
+        }
+        double max_avg=(double)c_sum/k;
+        //slide the window through the array
+        for(int j=k;j<nums.length;j++){
+            c_sum=c_sum-nums[j-k]+nums[j];
+            double avg=(double)c_sum/k;
+            max_avg=Math.max(max_avg,avg);
+        }        
+        return max_avg;
+
+        
+        
+
+}
+}

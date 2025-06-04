@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isHappy(int n) {
+        //to check whether the number has entered a loop and is not happy 
+        HashSet <Integer> seen=new HashSet<>();
+        while(n!=1 && !seen.contains(n)){
+            seen.add(n);
+            int s=0;
+        while(n>0){
+            int r=n%10;
+            s+=Math.pow(r,2);
+            n=n/10;
+        }
+        n=s;
+        }
+        if(n==1){
+            return true;
+        }
+        return false;
+
+        
+    }
+}

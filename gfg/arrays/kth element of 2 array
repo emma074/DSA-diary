@@ -1,0 +1,30 @@
+class Solution {
+    public int kthElement(int a[], int b[], int k) {
+        // code here
+        int m=a.length;
+        int n=b.length;
+        int res[]=new int[m+n];
+        int i=0,j=0,index=0;
+        while(i<m && j<n){
+            if(a[i]<=b[j]){
+                res[index++]=a[i++];
+            }
+            else{
+                res[index++]=b[j++];
+            }
+        }
+        //remaining elements in a[]
+        while(i<m){
+            res[index++]=a[i++];
+        }
+        //remaining elements in b[]
+        while(j<n){
+            res[index++]=b[j++];
+        }
+        if(k>0 && k<=(m+n)){
+            return res[k-1];
+        }
+        return -1;
+        
+    }
+}

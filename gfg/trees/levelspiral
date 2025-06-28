@@ -1,0 +1,60 @@
+/*
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+*/
+class Solution {
+    public ArrayList<Integer> findSpiral(Node root) {
+        // code here
+        ArrayList <Integer> res=new ArrayList<>();
+        ArrayList <Integer> cl=new ArrayList<>();
+        Queue <Node> q=new LinkedList<>();
+        int c=1;
+        if(root==null){
+            return res;
+        }
+        q.add(root);
+        q.add(null);
+        while(!q.isEmpty()){
+            Node cur=q.remove();
+            if(cur==null){
+                if(!cl.isEmpty()){
+                    if(c%2==0){
+                        res.addAll(cl);
+                    }
+                    else{
+                        Collections.reverse(cl);
+                        res.addAll(cl);
+                    }
+                }
+                c++;
+                cl=new ArrayList<>();
+            if(q.isEmpty()){
+                break;
+            }
+            else{
+                q.add(null);
+            }
+            }
+            else{
+                cl.add(cur.data);
+                if(cur.left!=null){
+                    q.add(cur.left);
+                }
+                if(cur.right!=null){
+                    q.add(cur.right);
+                }
+            }
+            
+        }
+        return res;
+    }
+}

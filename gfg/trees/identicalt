@@ -1,0 +1,28 @@
+/*
+
+class Node{
+    int data;
+    Node left,right;
+    Node(int d){
+        data=d;
+        left=right=null;
+    }
+}*/
+
+class Solution {
+    // Function to check if two trees are identical.
+    boolean isIdentical(Node r1, Node r2) {
+        // Code Here
+        if(r1==null||r2==null){
+            return true;
+        }
+       
+        Node c1=r1;
+        Node c2=r2;
+        if((c1.data==c2.data)&& isIdentical(c1.left,c2.left) && isIdentical(c1.right,c2.right)){
+            return true;
+        }
+        
+        return false;
+    }
+}

@@ -1,0 +1,51 @@
+/*
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+*/
+
+class Tree {
+    public ArrayList<Integer> reverseLevelOrder(Node root) {
+        // code here
+        ArrayList <Integer> res=new ArrayList<>();
+        ArrayList <Integer> cl=new ArrayList<>();
+        Queue <Node> q=new LinkedList<>();
+        if(root==null){
+            return res;
+        }
+        q.add(root);
+        q.add(null);
+        while(!q.isEmpty()){
+            Node currnode=q.remove();
+            if(currnode==null){
+                  res.addAll(cl);
+                cl=new ArrayList<>();
+                if(q.isEmpty()){
+                    break;
+                }
+                else{
+                    q.add(null);
+                }
+            }
+            else{
+            cl.add(currnode.data);
+            if(currnode.right!=null){
+                q.add(currnode.right);
+            }
+            if(currnode.left!=null){
+                q.add(currnode.left);
+            }
+            }
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}

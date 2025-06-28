@@ -1,0 +1,54 @@
+/*Complete The Function Provided
+Given Below is The Node Of Tree
+class Node
+{
+    int data;
+    Node left, right;
+    public Node(int data)
+    {
+        this.data = data;
+         left = right = null;
+    }
+}*/
+
+class Solution {
+    // Function to return list containing elements of right view of binary tree.
+    ArrayList<Integer> rightView(Node root) {
+        // add code here.
+        ArrayList<Integer> res=new ArrayList<>();
+        ArrayList <Integer> cl=new ArrayList<>();
+        Queue <Node> q=new LinkedList<>();
+        if(root==null){
+            return res;
+        }
+        q.add(root);
+        q.add(null);
+        while(!q.isEmpty()){
+            Node curr=q.remove();
+            if(curr==null){
+            if(!cl.isEmpty()){
+                int n=cl.size()-1;
+                res.add(cl.get(n));
+            }
+            cl=new ArrayList<>();
+            if(q.isEmpty()){
+                break;
+            }
+            else{
+                q.add(null);
+            }
+            }
+            else{
+                cl.add(curr.data);
+                if(curr.left!=null){
+                    q.add(curr.left);
+                }
+                if(curr.right!=null){
+                    q.add(curr.right);
+                }
+                
+            }
+        }
+        return res;
+    }
+}

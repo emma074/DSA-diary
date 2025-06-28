@@ -1,0 +1,8 @@
+import java .util.*;
+class num{
+    public static void main(String args[]){
+        int n=7;
+        int r=Math.sqrt(n);
+        System.out.print(n);
+    }
+}
